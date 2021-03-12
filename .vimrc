@@ -21,6 +21,8 @@ set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 
@@ -32,14 +34,11 @@ nmap <silent> <A-Right> :wincmd l<CR>
 nnoremap <C-n> :NERDTree<CR>
 
 
-execute pathogen#infect()
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_java_javac_classpath = "/home/jakub/codes/cviko3/src"
-
