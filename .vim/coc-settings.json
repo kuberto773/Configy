@@ -1,0 +1,4 @@
+{
+    "diagnostic.displayByAle": true,
+    "python.linting.pylintArgs": ["--errors-only"]
+}
