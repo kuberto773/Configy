@@ -33,7 +33,9 @@ set statusline=
 call plug#begin('~/.vim/plugged')
 
 " plugin na fuzzy search
+Plug 'junegunn/fzf', { 'dir': '~/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+set rtp+=~/.fzf
 
 
 " Tagy, zatial moc nevyuzivam
@@ -46,6 +48,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 
 " Colorschemy
+set rtp+=~/.fzf
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
 Plug 'tomasiser/vim-code-dark'
