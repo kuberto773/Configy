@@ -13,7 +13,7 @@ set showcmd
 set smartindent
 set autoindent
 set showcmd
-set nowrap
+" set nowrap
 set noswapfile
 set incsearch
 set colorcolumn=200
@@ -31,8 +31,13 @@ set whichwrap=b,s,<,>,[,]
 set statusline=
 
 call plug#begin('~/.vim/plugged')
+
+" plugin na fuzzy search
+Plug 'junegunn/fzf.vim'
+
+
 " Tagy, zatial moc nevyuzivam
-Plug 'lyuts/vim-rtags'
+"Plug 'lyuts/vim-rtags'
 "
 " Prehladavanie file systemu
 Plug 'scrooloose/nerdtree'
@@ -79,5 +84,24 @@ set path+=;
 set pumheight=10
 set shortmess+=c
 
+set laststatus=2
 
+map <C-f> <Esc>:Files <CR> 
+map <C-h> <Esc>:History<CR> 
+
+"Moving lines
+vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <C-j> :m '>+1<CR>gv=gv
+nmap <C-k> :m +1<CR>
+nmap <C-j> :m -2<CR>
+
+"vnoremap <C-q> :w !tac<CR>
+vnoremap <C-q> :!xargs nmap -T5 -F<CR>
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
